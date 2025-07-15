@@ -1,0 +1,262 @@
+@import '/vendor/filament/filament/resources/css/theme.css';
+@import '/vendor/awcodes/filament-table-repeater/resources/css/plugin.css';
+
+@config 'tailwind.config.js';
+
+.property-form div.fi-fo-tabs{
+    @apply flex-row;
+}
+
+.property-tabs-nav{
+    width:18rem !important;
+    /* height: 100%; */
+    height: calc(100vh - 300px);
+    overflow-y: auto;
+    top: 0;
+    @apply sticky;
+}
+
+.property-form nav[role=tablist]{
+    width:13.5rem;
+    @apply flex-col border-none; /*min-w-48  */ 
+}
+
+.property-form div[role=tabpanel]{
+    @apply w-full;
+}
+
+.property-form nav[role=tablist] > button{
+    @apply justify-between;
+}
+
+/* div.fi-active{
+    max-height: 700px !important;
+    overflow-y: auto !important;
+}
+.fi-form:not(.fi-form:has(nav.fi-tabs)) > .fi-fo-component-ctn {
+    max-height: 700px !important;
+    overflow-y: auto !important;
+    padding: 10px;
+} */
+
+.property-form > div:first-child,
+.user-form,
+.settings-form
+{
+    min-height: 350px;
+    max-height: calc(100vh - 300px) !important;
+    overflow-y: auto !important;
+    padding: 10px;
+}
+
+.custom_select .choices__list.choices__list--multiple{
+    display: none !important;
+}
+
+.tooltip {
+  @apply relative inline-block mx-1;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 360px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -180px;
+  padding: 4px;
+}
+
+.tooltip .tooltiptext.align-left{
+    @apply text-left;
+}
+
+.tooltip .tooltiptext.size-large{
+    width: 400px;
+    margin-left: -200px;
+    padding: 8px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext.position-bottom {
+    top: 150%;
+    bottom: auto;
+  }
+  
+  .tooltip .tooltiptext.position-bottom::after {
+    top: auto;
+    bottom: 100%;
+    border-color: transparent transparent black transparent;
+  }
+
+div[data-position='top'] .choices .choices__list--dropdown {
+    top: auto !important;
+    bottom: 100% !important;
+}
+
+#-facilities-tab .fi-fo-checkbox-list > * {
+    flex-basis: calc((100% - 16px) / 3);
+}
+#-facilities-tab .fi-fo-checkbox-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0 8px;
+}
+
+.custom-background-helper-text {
+    background-color: #a1a1aa !important;
+}
+
+/* Hide loaders specifically for Deal Type checkboxes */
+[data-no-loader="true"] ~ .fi-loading,
+[data-no-loader="true"] ~ .fi-spinner,
+[data-no-loader="true"] ~ .fi-shimmer {
+    display: none !important;
+}
+
+/* Hide any circular loading indicators for deal type checkboxes */
+[data-no-loader="true"] ~ *::before,
+[data-no-loader="true"] ~ *::after {
+    display: none !important;
+}
+
+/* Prevent loading animations for deal type checkboxes */
+[data-no-loader="true"] {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Hide any loading states that might appear near deal type checkboxes */
+.fi-fo-checkbox-list:has([data-no-loader="true"]) .fi-loading,
+.fi-fo-checkbox-list:has([data-no-loader="true"]) .fi-spinner,
+.fi-fo-checkbox-list:has([data-no-loader="true"]) .fi-shimmer {
+    display: none !important;
+}
+
+/* Enhanced loader hiding for deal type checkboxes */
+[data-no-loader="true"],
+[data-no-loader="true"] *,
+[data-no-loader="true"]::before,
+[data-no-loader="true"]::after {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Hide all possible loader elements around deal type checkboxes */
+.fi-fo-checkbox-list:has([data-no-loader="true"]) * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Hide Livewire loading states */
+/* [data-no-loader="true"] ~ [wire\:loading],
+[data-no-loader="true"] ~ [wire\:loading\.delay],
+[data-no-loader="true"] ~ [wire\:loading\.inline] {
+    display: none !important;
+} */
+
+/* Hide any shimmer or loading effects */
+.fi-fo-checkbox-list:has([data-no-loader="true"]) .fi-shimmer,
+.fi-fo-checkbox-list:has([data-no-loader="true"]) .fi-loading,
+.fi-fo-checkbox-list:has([data-no-loader="true"]) .fi-spinner {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Prevent any loading overlays */
+.fi-fo-checkbox-list:has([data-no-loader="true"])::before,
+.fi-fo-checkbox-list:has([data-no-loader="true"])::after {
+    display: none !important;
+}
+
+/* Hide any loading indicators in the entire fieldset containing deal type */
+fieldset:has([data-no-loader="true"]) .fi-loading,
+fieldset:has([data-no-loader="true"]) .fi-spinner,
+fieldset:has([data-no-loader="true"]) .fi-shimmer {
+    display: none !important;
+}
+
+/* Force remove any loading states from deal type field */
+.fi-fo-field-wrp:has([data-no-loader="true"]) {
+    animation: none !important;
+    transition: none !important;
+}
+
+.fi-fo-field-wrp:has([data-no-loader="true"]) * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Universal loader killer for Deal Type - Comprehensive approach */
+fieldset:has([data-no-loader="true"]) .fi-loading,
+fieldset:has([data-no-loader="true"]) .fi-spinner,
+fieldset:has([data-no-loader="true"]) .fi-shimmer,
+fieldset:has([data-no-loader="true"]) [role="status"],
+fieldset:has([data-no-loader="true"]) svg,
+fieldset:has([data-no-loader="true"])::before,
+fieldset:has([data-no-loader="true"])::after,
+fieldset:has([data-no-loader="true"]) *::before,
+fieldset:has([data-no-loader="true"]) *::after,
+fieldset:has([data-no-loader="true"]) .fi-loader,
+fieldset:has([data-no-loader="true"]) .loading,
+fieldset:has([data-no-loader="true"]) .spinner,
+fieldset:has([data-no-loader="true"]) .shimmer,
+fieldset:has([data-no-loader="true"]) [class*="loading"],
+fieldset:has([data-no-loader="true"]) [class*="spinner"],
+fieldset:has([data-no-loader="true"]) [class*="shimmer"],
+fieldset:has([data-no-loader="true"]) [class*="loader"] {
+    display: none !important;
+    animation: none !important;
+    transition: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Also target the checkbox list container specifically */
+.fi-fo-checkbox-list:has([data-no-loader="true"]) * {
+    animation: none !important;
+    transition: none !important;
+}
+
+.fi-fo-checkbox-list:has([data-no-loader="true"])::before,
+.fi-fo-checkbox-list:has([data-no-loader="true"])::after {
+    display: none !important;
+}
+
+/* Target any element with loading-related classes near deal type */
+[data-no-loader="true"] ~ *,
+[data-no-loader="true"] + * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Hide any loading states on the entire form when deal type is present */
+.fi-form:has([data-no-loader="true"]) .fi-loading,
+.fi-form:has([data-no-loader="true"]) .fi-spinner,
+.fi-form:has([data-no-loader="true"]) .fi-shimmer {
+    display: none !important;
+}
